@@ -3,11 +3,10 @@ package com.netease.course.neteasecourse.高性能编程专题.高并发网络�
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import org.springframework.boot.logging.LogLevel;
-
-import java.nio.channels.SocketChannel;
 
 /**
  *
@@ -18,7 +17,7 @@ public class EchoServer {
 
     public static void main(String[] args) throws Exception {
         // Configure the server.
-        // 创建EventLoopGroup   accept线程组 NioEventLoop
+        // 创建EventLoopGroup   accept线程组 内部实质创建多个NioEventLoop
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         // 创建EventLoopGroup   I/O线程组
         EventLoopGroup workerGroup2 = new NioEventLoopGroup(1);
@@ -27,7 +26,7 @@ public class EchoServer {
             ServerBootstrap b = new ServerBootstrap();
             // 配置服务端处理的reactor线程组以及服务端的其他配置
             b.group(bossGroup, workerGroup2).channel(NioServerSocketChannel.class).option(ChannelOption.SO_BACKLOG, 100)
-                    .handler(new LoggingHandler(LogLevel.DEBUG)).childHandler(new ChannelInitializer<SocketChannel>() {
+                    .handler(new LoggingHandler(String.valueOf(LogLevel.DEBUG))).childHandler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel ch) throws Exception {
                     ChannelPipeline p = ch.pipeline();
