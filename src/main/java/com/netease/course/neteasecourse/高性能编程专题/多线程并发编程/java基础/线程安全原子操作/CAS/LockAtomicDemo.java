@@ -1,4 +1,4 @@
-package com.netease.course.neteasecourse.高性能编程专题.多线程并发编程.java基础.线程安全原子操作;
+package com.netease.course.neteasecourse.高性能编程专题.多线程并发编程.java基础.线程安全原子操作.CAS;
 
 
 import java.io.IOException;
