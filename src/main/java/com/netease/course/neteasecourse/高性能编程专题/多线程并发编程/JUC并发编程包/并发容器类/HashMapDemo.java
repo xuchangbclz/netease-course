@@ -1,6 +1,9 @@
 package com.netease.course.neteasecourse.高性能编程专题.多线程并发编程.JUC并发编程包.并发容器类;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * HashMap数据结构【JDK1.7】：
@@ -40,7 +43,6 @@ import java.util.HashMap;
  *                      resize();
  *                  }
  *                4.链表->红黑树时机：当链表size>8时，会转成红黑树，提高查询效率。
- *
  *
  *
  **/

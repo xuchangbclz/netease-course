@@ -13,6 +13,8 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
+;
+
 /**
  * NIO selector 多路复用reactor线程模型
  **/
@@ -119,9 +121,9 @@ public class NioServer3 {
                     ByteBuffer requestBuffer = ByteBuffer.allocate(1024);
                     while (ch.isOpen() && ch.read(requestBuffer) != -1) {
                         // 长连接情况下,需要手动判断数据有没有读取结束 (此处做一个简单的判断: 超过0字节就认为请求结束了)
-                        if (requestBuffer.position() > 0) break;
+                        if (requestBuffer.position() > 0) {break;}
                     }
-                    if (requestBuffer.position() == 0) return; // 如果没数据了, 则不继续后面的处理
+                    if (requestBuffer.position() == 0) {return;} // 如果没数据了, 则不继续后面的处理}
                     requestBuffer.flip();
                     byte[] content = new byte[requestBuffer.limit()];
                     requestBuffer.get(content);
