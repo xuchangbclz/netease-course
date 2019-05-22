@@ -19,6 +19,10 @@ public class PipelineDemo {
         this.head.handler(arg0);
     }
 
+    /**
+     * 维护链表关系
+     * @param handler
+     */
     public void addLast(AbstractHandler handler) {
         HandlerChainContext context = head;
         while (context.next != null) {

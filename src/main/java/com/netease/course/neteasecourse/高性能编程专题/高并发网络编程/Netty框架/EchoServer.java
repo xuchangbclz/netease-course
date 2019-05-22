@@ -10,14 +10,17 @@ import io.netty.handler.logging.LoggingHandler;
 
 /**
  *
+ *
  **/
 public class EchoServer {
 
     static final int PORT = Integer.parseInt(System.getProperty("port", "8080"));
 
     public static void main(String[] args) throws Exception {
-        // Configure the server.
-        // 创建EventLoopGroup   accept线程组 内部实质创建多个NioEventLoop
+        /**
+         * 创建EventLoopGroup,accept线程组,内部实质根据nThreads数量，创建多个NioEventLoop
+         * NioEventLoop定义：将通道channel注册到NioEventLoop中的Selector上，进行事件轮询
+         */
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         // 创建EventLoopGroup   I/O线程组
         EventLoopGroup workerGroup2 = new NioEventLoopGroup(1);
@@ -35,7 +38,7 @@ public class EchoServer {
             });
             // 通过bind启动服务
             ChannelFuture f = b.bind(PORT).sync();
-            // 阻塞主线程，知道网络服务被关闭
+            // 阻塞主线程，直到网络服务被关闭
             f.channel().closeFuture().sync();
         } finally {
             // 关闭线程组
