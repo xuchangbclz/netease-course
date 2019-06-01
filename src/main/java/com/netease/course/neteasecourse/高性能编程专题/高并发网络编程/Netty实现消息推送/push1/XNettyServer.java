@@ -30,6 +30,7 @@ public class XNettyServer {
                     ChannelPipeline pipeline = ch.pipeline();
                     // TODO 3.1 增加解码器handler
                     pipeline.addLast(new XDecoder());
+
                     // TODO 3.2 打印出内容 handler
                     pipeline.addLast(new XHandller());
                 }
