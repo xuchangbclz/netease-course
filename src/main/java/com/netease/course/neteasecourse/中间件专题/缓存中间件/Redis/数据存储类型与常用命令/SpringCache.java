@@ -1,6 +1,6 @@
-package com.netease.course.neteasecourse.中间件专题.缓存.Redis.数据存储类型与常用命令;
+package com.netease.course.neteasecourse.中间件专题.缓存中间件.Redis.数据存储类型与常用命令;
 
-import com.netease.course.neteasecourse.中间件专题.缓存.Guava.User;
+import com.netease.course.neteasecourse.中间件专题.缓存中间件.Guava.User;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;

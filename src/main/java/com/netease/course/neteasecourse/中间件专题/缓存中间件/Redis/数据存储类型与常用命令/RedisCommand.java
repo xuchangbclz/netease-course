@@ -1,11 +1,11 @@
-package com.netease.course.neteasecourse.中间件专题.缓存.Redis.数据存储类型与常用命令;
+package com.netease.course.neteasecourse.中间件专题.缓存中间件.Redis.数据存储类型与常用命令;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 /**
- * redis功能：数据库，缓存，消息队列，Lock...
+ * redis功能：数据库，缓存中间件，消息队列，Lock...
  *
  * 通用命令：
  *  del key

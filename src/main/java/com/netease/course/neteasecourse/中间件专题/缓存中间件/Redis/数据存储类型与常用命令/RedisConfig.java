@@ -1,4 +1,4 @@
-package com.netease.course.neteasecourse.中间件专题.缓存.Redis.数据存储类型与常用命令;
+package com.netease.course.neteasecourse.中间件专题.缓存中间件.Redis.数据存储类型与常用命令;
 
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;

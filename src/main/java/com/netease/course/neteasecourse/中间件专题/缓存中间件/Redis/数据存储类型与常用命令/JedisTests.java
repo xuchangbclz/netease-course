@@ -1,4 +1,4 @@
-package com.netease.course.neteasecourse.中间件专题.缓存.Redis.数据存储类型与常用命令;
+package com.netease.course.neteasecourse.中间件专题.缓存中间件.Redis.数据存储类型与常用命令;
 
 import redis.clients.jedis.Jedis;
 
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Jedis客户端测试不同redis存储数据类型：List,Hash,Set,Zset,
+ * Jedis客户端测试不同redis存储数据类型：String,List,Hash,Set,Zset,Geo(地理位置坐标)，
  **/
 public class JedisTests {
 

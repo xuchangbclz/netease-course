@@ -1,4 +1,4 @@
-package com.netease.course.neteasecourse.中间件专题.缓存.自定义缓存;
+package com.netease.course.neteasecourse.中间件专题.缓存中间件.自定义缓存;
 
 import java.lang.ref.SoftReference;
 import java.util.Optional;
