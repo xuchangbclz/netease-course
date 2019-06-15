@@ -1,4 +1,4 @@
-package com.netease.course.neteasecourse.中间件专题.缓存中间件.Redis.数据存储类型与常用命令;
+package com.netease.course.neteasecourse.中间件专题.缓存中间件.Redis;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

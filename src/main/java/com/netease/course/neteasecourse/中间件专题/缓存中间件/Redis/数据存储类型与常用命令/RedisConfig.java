@@ -16,7 +16,7 @@ import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 
-@Configuration
+//@Configuration
 @Profile("single")
 // 开启spring cache注解功能
 @EnableCaching
