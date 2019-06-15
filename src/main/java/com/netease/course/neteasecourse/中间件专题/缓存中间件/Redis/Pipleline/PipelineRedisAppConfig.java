@@ -11,7 +11,10 @@ import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
-class PipelineRedisAppConfig {
+public class PipelineRedisAppConfig {
+
+    /** 用于测试的通道名称 */
+    public final static String TEST_CHANNEL_NAME = "sms_send";
 
     @Bean
     public LettuceConnectionFactory redisConnectionFactory() {
