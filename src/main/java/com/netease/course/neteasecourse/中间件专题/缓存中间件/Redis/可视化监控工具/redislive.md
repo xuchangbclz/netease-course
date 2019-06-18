@@ -4,8 +4,7 @@
 
 ## 1、 环境需要
 ```
-centos7
-默认的 python ，应该是2.7.x
+centos7已经预安装了python ，应该是2.7.x
 ```
 
 ## 2、安装pip
@@ -38,7 +37,7 @@ You should consider upgrading via the 'pip install --upgrade pip' command.
 ## 4、下载redisLive
 ```
 wget https://github.com/nkrode/RedisLive/archive/master.zip
-mv master.zip redisLive.zip
+mv master.zip redislive.zip
 # 解压
 unzip redisLive.zip -d /usr/local/redisLive
 # 没有wget这个命令怎么办？百度一下怎么在centos7下面安装wget。
@@ -58,7 +57,8 @@ cp redis-live.conf.example redis-live.conf
         [ 
                 {
                         "server": "192.168.100.242",
-                        "port" :6381
+                        "port" :6381,
+                        "password" : "redispassword"
                 },
                 {
                         "server": "192.168.100.242",
@@ -87,8 +87,8 @@ cd /usr/local/redisLive/RedisLive-master/src
 
 # 运行数据采集
 /usr/local/redisLive/RedisLive-master/src/redis-monitor.py --duration=120
-# 运行web控制台
-/usr/local/redisLive/RedisLive-master/src/redis-live.py
+# 运行web控制台 #默认使用8888端口，使用listen参数指定端口
+/usr/local/redisLive/RedisLive-master/src/redis-live.py listen 9999
 # web gui页面
 http://192.168.100.242:8888/index.html
 ```
