@@ -1,13 +1,10 @@
 package com.netease.course.neteasecourse.中间件专题.消息中间件.Kafka.springboot.producer;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
+import cn.hutool.json.JSONUtil;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.ProducerListener;
 import org.springframework.kafka.support.SendResult;
@@ -29,7 +26,6 @@ public class Producer {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
-    private static Gson gson = new GsonBuilder().create();
 
     // 发送消息
     public void sendMessage(Message message) {
@@ -41,9 +37,9 @@ public class Producer {
         message.setSendTime(new Date());
 
         try {
-            kafkaTemplate.send(kafkaTemplate.getDefaultTopic(), gson.toJson(message));
+            kafkaTemplate.send(kafkaTemplate.getDefaultTopic(), JSONUtil.toJsonStr(message));
         } catch (Exception e) {
-            log.error("发送数据出错！！！{}{}", kafkaTemplate.getDefaultTopic(), gson.toJson(message));
+            log.error("发送数据出错！！！{}{}", kafkaTemplate.getDefaultTopic(), JSONUtil.toJsonStr(message));
             log.error("发送数据出错=====>", e);
         }
 
