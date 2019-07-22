@@ -68,11 +68,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.1.32.Final</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.kafka</groupId>
@@ -94,6 +94,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-activemq</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+            <version>5.15.8</version>
+        </dependency>
+
         <!-- MQTT -->
         <dependency>
             <groupId>org.springframework.integration</groupId>
@@ -108,7 +114,15 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+
     </dependencies>
+
 
     <build>
         <plugins>
@@ -117,6 +131,17 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+
+        <!--引入本地资源-->
+        <resources>
+            <resource>
+                <directory>lib</directory>
+                <targetpath>BOOT-INF/lib/</targetpath>
+                <includes>
+                    <include>**/*.jar</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
 </project>

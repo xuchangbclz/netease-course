@@ -16,7 +16,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 ;
 
 /**
- * NIO selector 多路复用reactor线程模型
+ * NIO selector 多路复用reactor线程模型，好好理解，非常重要！！！！！！！
+ * mainReactor中有Selector选择器，把ServerSocketChannel注册到Selector，监听ACCEPT事件
+ *
  **/
 public class NioServer3 {
 
@@ -24,7 +26,7 @@ public class NioServer3 {
     private static ExecutorService workPool = Executors.newCachedThreadPool();
 
     /**
-     * 封装了selector.select()等事件轮询的代码
+     * 封装了Selector.select()事件轮询的代码
      */
     abstract class ReactorThread extends Thread {
 
@@ -200,7 +202,7 @@ public class NioServer3 {
 
     public static void main(String[] args) throws Exception {
         NioServer3 nioServerV3 = new NioServer3();
-        nioServerV3.newGroup(); // 1、 创建main和sub两组线程
+        nioServerV3.newGroup(); // 1、 创建main和sub两组React线程
         nioServerV3.initAndRegister(); // 2、 创建serverSocketChannel，注册到mainReactor线程上的selector上
         nioServerV3.bind(); // 3、 为serverSocketChannel绑定端口
     }

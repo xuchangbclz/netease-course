@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
  * Spring cache 注解使用，可替代繁琐的redis逻辑的判断
  **/
 @Service
-@Profile("single")
 public class SpringCache {
 
     /**
