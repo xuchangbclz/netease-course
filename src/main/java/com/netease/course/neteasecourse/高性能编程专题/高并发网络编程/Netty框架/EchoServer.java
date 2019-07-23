@@ -24,6 +24,11 @@ import io.netty.handler.logging.LoggingHandler;
  *  3.注册是以任务方式提交，当有任务提交时会触发NioEventLoop的run()方法，开始Selector.select()事件轮询
  *  4.doBind0()真正执行绑定端口
  *  5.pipeline.bind() Netty职责链
+ *
+ * Netty中的ChannelPipeline：
+ *  1.当ServerBootstrap.bind()启动Netty时，创建了NioServerSocketChannel，每当有新的Channel创建时会自动创建一个该Channel专有的Pipeline,
+ *      Pipeline保存了Channel通道所有Handler处理器，Channel中事件以责任链形式被Pipeline中所有的Handler处理
+ *
  **/
 public class EchoServer {
 
