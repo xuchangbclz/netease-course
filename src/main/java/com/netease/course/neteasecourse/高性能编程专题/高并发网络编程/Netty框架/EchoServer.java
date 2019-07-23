@@ -28,6 +28,9 @@ import io.netty.handler.logging.LoggingHandler;
  * Netty中的ChannelPipeline：
  *  1.当ServerBootstrap.bind()启动Netty时，创建了NioServerSocketChannel，每当有新的Channel创建时会自动创建一个该Channel专有的Pipeline,
  *      Pipeline保存了Channel通道所有Handler处理器，Channel中事件以责任链形式被Pipeline中所有的Handler处理
+ *  2.Channel入站&出站事件，从socket底层自己冒出来的叫入站事件（accept,read），主动让socket执行某种操作的叫出站事件(bind,write)
+ *  3.ChannelPipeline线程安全，ChannelHandler可以随时添加到ChannelPipeline中
+ *  4.ChannelHandler本身不维护上下级关系，而是交给ChannelHandlerContext上下文维护ChannelHandler上下级关系
  *
  **/
 public class EchoServer {
@@ -60,8 +63,12 @@ public class EchoServer {
              */
             b.group(parentGroup, childGroup).channel(NioServerSocketChannel.class).option(ChannelOption.SO_BACKLOG, 100)
                     .handler(new LoggingHandler(String.valueOf(LogLevel.DEBUG))).childHandler(new ChannelInitializer<SocketChannel>() {
+
                 @Override
                 public void initChannel(SocketChannel ch) throws Exception {
+                    /**
+                     * 手动给NioServerSocketChannel初始化一个ChannelPipeline
+                     */
                     ChannelPipeline p = ch.pipeline();
                     p.addLast(new EchoServerHandler());
                 }
