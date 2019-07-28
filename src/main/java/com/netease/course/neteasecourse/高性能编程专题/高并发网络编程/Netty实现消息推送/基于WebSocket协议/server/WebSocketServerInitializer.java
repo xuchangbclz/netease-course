@@ -1,7 +1,7 @@
-package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.push2.server;
+package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.基于WebSocket协议.server;
 
-import com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.push2.handler.NewConnectHandler;
-import com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.push2.handler.WebSocketServerHandler;
+import com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.基于WebSocket协议.handler.NewConnectHandler;
+import com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.基于WebSocket协议.handler.WebSocketServerHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;

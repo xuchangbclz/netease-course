@@ -1,6 +1,6 @@
-package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.push2.handler;
+package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.基于WebSocket协议.handler;
 
-import com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.push2.test.TestCenter;
+import com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.基于WebSocket协议.test.TestCenter;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
@@ -25,6 +25,9 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 
     public static final LongAdder counter = new LongAdder();
 
+    /**
+     * 读取socket连接请求
+     */
     @Override
     public void channelRead0(ChannelHandlerContext ctx, Object msg) {
         counter.add(1);

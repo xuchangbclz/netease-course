@@ -1,4 +1,4 @@
-package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.push1;
+package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.基于自定义协议;
 
 
 import io.netty.buffer.ByteBuf;
@@ -8,8 +8,10 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 
 import java.util.List;
 
-// 编解码一定是根据协议~
-public class XDecoder extends ByteToMessageDecoder {
+/**
+ * 自己手动实现编解码，一定是根据协议
+ */
+public class DecoderHandler extends ByteToMessageDecoder {
     static final int PACKET_SIZE = 220;
 
     // 用来临时保留没有处理过的请求报文

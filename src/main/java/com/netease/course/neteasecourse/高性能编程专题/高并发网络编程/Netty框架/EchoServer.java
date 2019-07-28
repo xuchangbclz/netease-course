@@ -67,7 +67,7 @@ public class EchoServer {
                 @Override
                 public void initChannel(SocketChannel ch) throws Exception {
                     /**
-                     * 手动给NioServerSocketChannel初始化一个ChannelPipeline
+                     * 手动给客户端连接NioSocketChannel初始化一个ChannelPipeline
                      */
                     ChannelPipeline p = ch.pipeline();
                     p.addLast(new EchoServerHandler());

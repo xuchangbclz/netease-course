@@ -1,6 +1,6 @@
-package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.push2.server;
+package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.基于WebSocket协议.server;
 
-import com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.push2.test.TestCenter;
+import com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.基于WebSocket协议.test.TestCenter;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -10,6 +10,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
+ * 基于Netty实现服务端
  *
  **/
 public class WebSocketServer {
@@ -26,17 +27,17 @@ public class WebSocketServer {
                     .option(ChannelOption.SO_REUSEADDR, true)
                     .childHandler(new WebSocketServerInitializer())
                     .childOption(ChannelOption.SO_REUSEADDR, true);
-            for (int i = 0; i < 100; i++) {
-                b.bind(++PORT).addListener(new ChannelFutureListener() {
-                    @Override
-                    public void operationComplete(ChannelFuture future) throws Exception {
-                        if ("true".equals(System.getProperty("netease.debug"))) {
-                            System.out.println("端口绑定完成：" + future.channel().localAddress());
-                        }
-                    }
-                });
-            }
-
+            //for (int i = 0; i < 100; i++) {
+            //    b.bind(++PORT).addListener(new ChannelFutureListener() {
+            //        @Override
+            //        public void operationComplete(ChannelFuture future) throws Exception {
+            //            if ("true".equals(System.getProperty("netease.debug"))) {
+            //                System.out.println("端口绑定完成：" + future.channel().localAddress());
+            //            }
+            //        }
+            //    });
+            //}
+            b.bind(PORT);
             // 端口绑定完成，启动消息随机推送(测试)
             TestCenter.startTest();
 

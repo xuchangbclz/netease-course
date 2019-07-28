@@ -1,4 +1,4 @@
-package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.push1.client;
+package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.基于自定义协议;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -7,6 +7,7 @@ import java.util.concurrent.CountDownLatch;
 
 
 /**
+ * 模拟1个客户端连续发送10条消息给服务端
  *
  **/
 public class SocketClient {
@@ -15,12 +16,14 @@ public class SocketClient {
         Socket socket = new Socket("localhost", 9999);
         OutputStream outputStream = socket.getOutputStream();
 
-        // 消息长度固定为 220字节，包含有
-        // 1. 目标用户ID长度为10， 10 000 000 000 ~ 19 999 999 999
-        // 2. 消息内容字符串长度最多70。 按一个汉字3字节，内容的最大长度为210字节
+        /**
+         * 客户端发送服务端消息内容【长度固定为 220字节】：
+         * 1. 目标用户ID长度为10， 10 000 000 000 ~ 19 999 999 999
+         * 2. 消息内容字符串长度最多70。 按一个汉字3字节，内容的最大长度为210字节
+         */
         byte[] request = new byte[220];
         byte[] userId = "10000000000".getBytes();
-        byte[] content = "我爱你tony你爱我吗我爱你tony你爱我吗我爱你tony你爱我吗我爱你tony你爱我吗".getBytes();
+        byte[] content = "我爱你tony你爱我吗?我爱你tony你爱我吗?我爱你tony你爱我吗?我爱你tony你爱我吗?".getBytes();
         System.arraycopy(userId, 0, request, 0, 10);
         System.arraycopy(content, 0, request, 10, content.length);
 
