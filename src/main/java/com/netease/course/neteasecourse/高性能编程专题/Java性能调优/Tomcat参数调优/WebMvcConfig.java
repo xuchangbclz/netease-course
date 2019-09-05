@@ -24,7 +24,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     }
 
     /**
-     * ThreadPoolTaskExecutor是一个spring的线程池技术
+     * ThreadPoolTaskExecutor是一个spring的线程池技术,@Async 异步注解的线程就是基于该线程池
      */
     @Bean
     public ThreadPoolTaskExecutor threadPoolTaskExecutor() {
