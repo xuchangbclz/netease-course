@@ -3,13 +3,14 @@ package com.netease.course.neteasecourse.高性能编程专题.高并发网络�
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.buffer.UnpooledHeapByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 
 import java.util.List;
 
 /**
- * 自己手动实现编解码，一定是根据协议
+ * 自己手动实现编解码，根据自定义协议
  */
 public class DecoderHandler extends ByteToMessageDecoder {
     static final int PACKET_SIZE = 220;

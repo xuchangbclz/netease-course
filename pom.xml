@@ -121,6 +121,20 @@
             <version>4.3.0</version>
         </dependency>
 
+        <!--zookeeper 客户端-->
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.11</version>
+        </dependency>
+
+        <!--高性能序列化 工具-->
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.9.0</version>
+        </dependency>
+
     </dependencies>
 
 
@@ -133,7 +147,7 @@
         </plugins>
 
         <!--引入本地资源-->
-        <resources>
+        <!--<resources>
             <resource>
                 <directory>lib</directory>
                 <targetpath>BOOT-INF/lib/</targetpath>
@@ -141,7 +155,7 @@
                     <include>**/*.jar</include>
                 </includes>
             </resource>
-        </resources>
+        </resources>-->
     </build>
 
 </project>

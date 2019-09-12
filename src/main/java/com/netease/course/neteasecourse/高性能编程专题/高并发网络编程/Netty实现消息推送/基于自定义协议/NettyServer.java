@@ -37,7 +37,7 @@ public class NettyServer {
                     // 3、 职责链定义（请求收到后怎么处理，每个socket连接有一套自己的ChannelPipeline）
                     ChannelPipeline pipeline = ch.pipeline();
                     // TODO 3.1 增加解码器handler
-                    pipeline.addLast(new DecoderHandler());
+                    //pipeline.addLast(new DecoderHandler());
 
                     // TODO 3.2 打印出内容 handler
                     pipeline.addLast(new PrintHandler());
