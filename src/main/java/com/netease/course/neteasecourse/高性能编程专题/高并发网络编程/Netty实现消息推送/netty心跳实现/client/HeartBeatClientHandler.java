@@ -30,6 +30,7 @@ public class HeartBeatClientHandler extends ChannelInboundHandlerAdapter {
         ctx.fireChannelActive();
     }
 
+
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("客户端：关闭连接时间" + new Date());

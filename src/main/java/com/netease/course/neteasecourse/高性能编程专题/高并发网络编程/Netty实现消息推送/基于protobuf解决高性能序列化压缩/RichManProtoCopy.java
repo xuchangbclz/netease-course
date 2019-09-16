@@ -3,6 +3,7 @@
 
 package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.基于protobuf解决高性能序列化压缩;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class RichManProtoCopy {
@@ -72,4 +73,31 @@ public final class RichManProtoCopy {
   public void setCars(List<Car> cars) {
     this.cars = cars;
   }
+
+  public static RichManProtoCopy getInstance() {
+    RichManProtoCopy richManProtoCopy= new RichManProtoCopy();
+    richManProtoCopy.setId(1);
+    richManProtoCopy.setName("王思聪");
+    richManProtoCopy.setEmail("wsc@163.com");
+    List<RichManProtoCopy.Car> cars = new ArrayList<>();
+    RichManProtoCopy.Car car = new RichManProtoCopy.Car();
+    car.setName("上海大众超跑");
+    car.setType(RichManProtoCopy.CarType.DASAUTO);
+
+    RichManProtoCopy.Car car1 = new RichManProtoCopy.Car();
+    car1.setName("Aventador");
+    car1.setType(RichManProtoCopy.CarType.LAMBORGHINI);
+
+    RichManProtoCopy.Car car2 = new RichManProtoCopy.Car();
+    car2.setName("奔驰SLS级AMG");
+    car2.setType(RichManProtoCopy.CarType.BENZ);
+
+    cars.add(car);
+    cars.add(car1);
+    cars.add(car2);
+    richManProtoCopy.setCars(cars);
+    return richManProtoCopy;
+  }
+
+
 }

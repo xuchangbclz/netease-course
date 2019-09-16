@@ -46,9 +46,9 @@ public class HeartBeatsClient {
                              * 客户端代码也要加入IdleStateHandler这个handler，注意的是，我们要注意的是写超时，所以要设置写超时的时间，因为服务器端是5秒检测读超时，
                              * 所以客户端必须在5秒内发送一次心跳，告之服务端，所以我们设置4秒
                              */
-                            p.addLast("ping", new IdleStateHandler(0, 4, 0, TimeUnit.SECONDS));
-                            p.addLast("decoder", new StringDecoder());
-                            p.addLast("encoder", new StringEncoder());
+                            //p.addLast("ping", new IdleStateHandler(0, 4, 0, TimeUnit.SECONDS));
+                            //p.addLast("decoder", new StringDecoder());
+                            //p.addLast("encoder", new StringEncoder());
                             p.addLast(new HeartBeatClientHandler());
                         }
                     });
@@ -61,7 +61,7 @@ public class HeartBeatsClient {
 
 
     public static void main(String[] args) throws Exception {
-        int port = 8080;
+        int port = 9011; //8080
         if (args != null && args.length > 0) {
             try {
                 port = Integer.valueOf(args[0]);

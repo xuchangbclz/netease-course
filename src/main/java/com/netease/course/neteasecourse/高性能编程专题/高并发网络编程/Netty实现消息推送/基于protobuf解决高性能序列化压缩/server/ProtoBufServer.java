@@ -33,8 +33,8 @@ public class ProtoBufServer {
                      * 添加了netty对protobuf支持的两个天然的decoder
                      * 第一个Decoder是将帧byte数据转化成message，第二步就是将message转化成我们自定义的Rimanproto
                      */
-                    //ch.pipeline().addLast(new ProtobufVarint32FrameDecoder());
-                    //ch.pipeline().addLast(new ProtobufDecoder(RichManProto.RichMan.getDefaultInstance()));
+                    ch.pipeline().addLast(new ProtobufVarint32FrameDecoder());
+                    ch.pipeline().addLast(new ProtobufDecoder(RichManProto.RichMan.getDefaultInstance()));
                     ch.pipeline().addLast(new ProtoBufServerHandler());
                 }
             });
