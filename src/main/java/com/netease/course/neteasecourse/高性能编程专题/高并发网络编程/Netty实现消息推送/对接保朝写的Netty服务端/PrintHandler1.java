@@ -1,4 +1,4 @@
-package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.对接保朝写的netty服务端;
+package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.对接保朝写的Netty服务端;
 
 import cn.hutool.json.JSONUtil;
 import com.utopa.netty.service.model.Message;

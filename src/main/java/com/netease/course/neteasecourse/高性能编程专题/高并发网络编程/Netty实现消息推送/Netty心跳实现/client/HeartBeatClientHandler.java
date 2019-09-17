@@ -1,4 +1,4 @@
-package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.netty心跳实现.client;
+package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.Netty心跳实现.client;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

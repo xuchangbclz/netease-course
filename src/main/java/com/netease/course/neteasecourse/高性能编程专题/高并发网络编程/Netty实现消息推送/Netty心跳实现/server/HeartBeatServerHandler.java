@@ -1,4 +1,4 @@
-package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.netty心跳实现.server;
+package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.Netty心跳实现.server;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
