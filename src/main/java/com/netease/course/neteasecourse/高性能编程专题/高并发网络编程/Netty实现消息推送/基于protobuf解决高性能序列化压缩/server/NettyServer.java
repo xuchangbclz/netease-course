@@ -17,16 +17,19 @@ import io.netty.handler.logging.LoggingHandler;
 /**
  * 服务端
  **/
-public class ProtoBufServer {
+public class NettyServer {
 
     public void bind(int port) throws Exception {
         // 配置服务端的NIO线程组
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
-            ServerBootstrap b = new ServerBootstrap();
-            b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).option(ChannelOption.SO_BACKLOG, 100)
-                    .handler(new LoggingHandler(LogLevel.INFO)).childHandler(new ChannelInitializer<SocketChannel>() {
+            ServerBootstrap b = new ServerBootstrap()
+                    .group(bossGroup, workerGroup)
+                    .channel(NioServerSocketChannel.class)
+                    .option(ChannelOption.SO_BACKLOG, 100)
+                    .handler(new LoggingHandler(LogLevel.INFO))
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel ch) {
                     /**
@@ -61,6 +64,6 @@ public class ProtoBufServer {
                 // 采用默认值
             }
         }
-        new ProtoBufServer().bind(port);
+        new NettyServer().bind(port);
     }
 }

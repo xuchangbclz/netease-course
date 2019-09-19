@@ -3,10 +3,11 @@
 
 package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.基于protobuf解决高性能序列化压缩;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class RichManProtoCopy {
+public class RichManProtoCopy implements Serializable {
 
   private int id;
   private String name;

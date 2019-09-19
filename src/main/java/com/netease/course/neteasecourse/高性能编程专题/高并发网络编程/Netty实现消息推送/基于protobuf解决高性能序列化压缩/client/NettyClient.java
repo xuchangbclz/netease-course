@@ -14,7 +14,7 @@ import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 /**
  *
  **/
-public class ProtoBufClient {
+public class NettyClient {
 
     public void connect(int port, String host) throws Exception {
         // 配置客户端NIO线程组
@@ -29,7 +29,7 @@ public class ProtoBufClient {
                              * 在传输之前需要将你的类进行protobuf的序列化，这是两个序列化的编码器
                              */
                             ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
-                            ch.pipeline().addLast(new ProtobufEncoder());
+                            ch.pipeline().addLast(new ProtobufEncoder()); //ProtoBufEncoder()
                             ch.pipeline().addLast(new ProtoBufClientHandler());
                         }
                     });
@@ -58,7 +58,7 @@ public class ProtoBufClient {
                 // 采用默认值
             }
         }
-        new ProtoBufClient().connect(port, "127.0.0.1");
+        new NettyClient().connect(port, "127.0.0.1");
     }
 
 }
