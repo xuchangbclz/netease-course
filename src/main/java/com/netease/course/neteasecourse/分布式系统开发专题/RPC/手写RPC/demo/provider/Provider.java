@@ -1,7 +1,7 @@
 package com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.demo.provider;
 
 
-import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.common.protocol.JavaSerializeMessageProtocol;
+import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.protocol.JavaSerializeMessageProtocol;
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.demo.DemoService;
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.server.NettyRpcServer;
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.server.RequestHandler;

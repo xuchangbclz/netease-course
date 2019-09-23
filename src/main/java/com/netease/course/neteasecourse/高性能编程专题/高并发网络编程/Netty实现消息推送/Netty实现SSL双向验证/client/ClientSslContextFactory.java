@@ -52,7 +52,7 @@ public class ClientSslContextFactory {
         try {
             // 获得KeyManagerFactory对象. 初始化位默认算法
             keyFac = TrustManagerFactory.getInstance("SunX509") ;
-            is = ClientSslContextFactory.class.getClassLoader().getResourceAsStream("./cChat.jks");
+            is = ClientSslContextFactory.class.getClassLoader().getResourceAsStream("netty/cChat.jks");
             ks = KeyStore.getInstance("JKS") ;
             String keyStorePass = "sNetty" ;
             ks.load(is , keyStorePass.toCharArray()) ;
@@ -84,7 +84,7 @@ public class ClientSslContextFactory {
         try {
             // 获得KeyManagerFactory对象. 初始化位默认算法
             keyFac = KeyManagerFactory.getInstance("SunX509") ;
-            is = ClientSslContextFactory.class.getClassLoader().getResourceAsStream("./cChat.jks");
+            is = ClientSslContextFactory.class.getClassLoader().getResourceAsStream("netty/cChat.jks");
             ks = KeyStore.getInstance("JKS") ;
             String keyStorePass = "sNetty" ;
             ks.load(is , keyStorePass.toCharArray()) ;

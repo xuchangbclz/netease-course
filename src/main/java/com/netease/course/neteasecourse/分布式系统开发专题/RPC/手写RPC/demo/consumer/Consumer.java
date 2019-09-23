@@ -3,8 +3,8 @@ package com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写R
 
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.client.ClientStubProxyFactory;
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.client.net.NettyNetClient;
-import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.common.protocol.JavaSerializeMessageProtocol;
-import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.common.protocol.MessageProtocol;
+import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.protocol.JavaSerializeMessageProtocol;
+import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.protocol.MessageProtocol;
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.demo.DemoService;
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.discovery.ZookeeperServiceInfoDiscoverer;
 

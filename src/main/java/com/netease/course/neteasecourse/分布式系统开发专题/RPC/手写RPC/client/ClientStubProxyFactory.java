@@ -1,9 +1,9 @@
 package com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.client;
 
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.client.net.NetClient;
-import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.common.protocol.MessageProtocol;
-import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.common.protocol.Request;
-import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.common.protocol.Response;
+import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.protocol.MessageProtocol;
+import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.protocol.Request;
+import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.protocol.Response;
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.discovery.ServiceInfo;
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.discovery.ServiceInfoDiscoverer;
 import lombok.Data;

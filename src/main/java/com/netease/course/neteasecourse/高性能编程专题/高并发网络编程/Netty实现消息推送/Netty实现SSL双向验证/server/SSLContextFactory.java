@@ -60,7 +60,7 @@ public class SSLContextFactory {
             keyFac = KeyManagerFactory.getInstance("SunX509");
 
             // 加载服务端密钥库
-            is = SSLContextFactory.class.getClassLoader().getResourceAsStream("./sChat.jks");
+            is = SSLContextFactory.class.getClassLoader().getResourceAsStream("netty/sChat.jks");
 
             // 加载服务端的KeyStore,  该密钥库的密码storepass,storepass指定密钥库的密码(获取keystore信息所需的密码)
             ks = KeyStore.getInstance("JKS") ;

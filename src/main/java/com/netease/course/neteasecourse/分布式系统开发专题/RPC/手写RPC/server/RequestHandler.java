@@ -1,9 +1,9 @@
 package com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.server;
 
-import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.common.protocol.MessageProtocol;
-import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.common.protocol.Request;
-import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.common.protocol.Response;
-import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.common.protocol.Status;
+import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.protocol.MessageProtocol;
+import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.protocol.Request;
+import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.protocol.Response;
+import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.protocol.Status;
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.server.register.ServiceObject;
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.server.register.ServiceRegister;
 import lombok.Data;

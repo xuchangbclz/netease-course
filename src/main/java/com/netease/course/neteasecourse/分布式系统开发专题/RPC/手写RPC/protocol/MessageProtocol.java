@@ -1,4 +1,4 @@
-package com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.common.protocol;
+package com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.protocol;
 
 public interface MessageProtocol {
 

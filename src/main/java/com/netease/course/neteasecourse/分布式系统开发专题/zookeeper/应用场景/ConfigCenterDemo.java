@@ -32,7 +32,7 @@ public class ConfigCenterDemo {
 	// 将配置文件的内容存放到zk节点上
 	public void putConfigFile2ZK() throws IOException {
 
-		File f = new File(this.getClass().getResource("/config.xml").getFile());
+		File f = new File(this.getClass().getResource("/zookeeper/config.xml").getFile());
 		FileInputStream fin = new FileInputStream(f);
 		byte[] datas = new byte[(int) f.length()];
 		fin.read(datas);

@@ -5,6 +5,7 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.hutool.json.JSONUtil;
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.server.register.MyZkSerializer;
 import org.I0Itec.zkclient.ZkClient;
 
@@ -17,7 +18,7 @@ public class ZookeeperServiceInfoDiscoverer implements ServiceInfoDiscoverer {
 	private String centerRootPath = "/Rpc-framework";
 
 	public ZookeeperServiceInfoDiscoverer() {
-		client = new ZkClient("127.0.0.1:2181");
+		client = new ZkClient("10.5.28.136:2181");
 		client.setZkSerializer(new MyZkSerializer());
 	}
 
@@ -29,7 +30,7 @@ public class ZookeeperServiceInfoDiscoverer implements ServiceInfoDiscoverer {
 		for (String ch : children) {
 			try {
 				String deCh = URLDecoder.decode(ch, "UTF-8");
-				ServiceInfo serviceInfo = JSON.parseObject(deCh, ServiceInfo.class);
+				ServiceInfo serviceInfo = JSONUtil.toBean(deCh, ServiceInfo.class);
 				resources.add(serviceInfo);
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();

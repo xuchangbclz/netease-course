@@ -1,6 +1,7 @@
 package com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.server.register;
 
 
+import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
 import com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.discovery.ServiceInfo;
 import org.I0Itec.zkclient.ZkClient;
@@ -21,7 +22,7 @@ public class ZookeeperExportServiceRegister extends DefaultServiceRegister imple
 	private String centerRootPath = "/Rpc-framework";
 
 	public ZookeeperExportServiceRegister() {
-		String addr = "127.0.0.1:2181";
+		String addr = "10.5.28.136:2181";
 		client = new ZkClient(addr);
 		client.setZkSerializer(new MyZkSerializer());
 	}
@@ -42,7 +43,7 @@ public class ZookeeperExportServiceRegister extends DefaultServiceRegister imple
 
 	private void exportService(ServiceInfo serviceInfo) {
 		String serviceName = serviceInfo.getName();
-		String uri = JSON.toJSONString(serviceInfo);
+		String uri = JSONUtil.toJsonStr(serviceInfo);
 		try {
 			uri = URLEncoder.encode(uri, "UTF-8");
 		} catch (UnsupportedEncodingException e) {

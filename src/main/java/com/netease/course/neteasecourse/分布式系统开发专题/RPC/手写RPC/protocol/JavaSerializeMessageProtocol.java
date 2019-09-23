@@ -1,4 +1,4 @@
-package com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.common.protocol;
+package com.netease.course.neteasecourse.分布式系统开发专题.RPC.手写RPC.protocol;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
