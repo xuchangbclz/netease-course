@@ -14,8 +14,15 @@ public class PrintHandler1 extends SimpleChannelInboundHandler<Message> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext cxt, Message message) throws Exception {
-        System.out.println("客户端接受到服务端消息：" + JSONUtil.toJsonStr(message));
-        System.out.println("客户端接受到服务端Body消息体：" + new String(message.getContent(), CharsetUtil.UTF_8));
+        //System.out.println("客户端接受到服务端消息：" + JSONUtil.toJsonStr(message));
+        //System.out.println("客户端接受到服务端Body消息体：" + new String(message.getContent(), CharsetUtil.UTF_8));
+        int msgId = message.getMsgId();
+        if (msgId == 401) {
+            System.out.println("怪物AI攻击玩家：" + new String(message.getContent(), CharsetUtil.UTF_8));
+        }
+        if (msgId == 400) {
+            System.out.println("同步怪物AI信息：" + new String(message.getContent(), CharsetUtil.UTF_8));
+        }
     }
 
 

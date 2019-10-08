@@ -14,6 +14,8 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.util.CharsetUtil;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -21,6 +23,7 @@ import java.util.concurrent.TimeUnit;
  **/
 public class NettyClient1 {
 
+    public static ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(10);
 
     public void connect(int port, String host) throws Exception {
         // Configure the client.
@@ -42,21 +45,26 @@ public class NettyClient1 {
                     });
             ChannelFuture future = b.connect(host, port).sync();
             /**
-             * 模拟连续发消息到服务端
+             * 模拟发消息到服务端
+             * 5s发送一次玩家数据到服务器
              */
-            for (int i = 1; i <= 10; i++) {
-                System.out.println("客户端第" + i + "次发送消息");
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.put("musicId", 2448L);
-                jsonObject.put("reqTimeStamp", 15553225632L);
-                jsonObject.put("playTime", 15553225632L);
-                jsonObject.put("messageType", -1);
-                jsonObject.put("pianoId", 7L);
+            Player playerA = Player.initPlayerA();
+            PlayerMoveTask playerMoveTask = new PlayerMoveTask(playerA,future);
+            scheduledThreadPool.scheduleAtFixedRate(playerMoveTask, 5, 5, TimeUnit.SECONDS);
 
-                Message message = Message.buildMessage(1, (byte) 1, (byte) 1, JSONUtil.toJsonStr(jsonObject).getBytes(CharsetUtil.UTF_8));
-                future.channel().writeAndFlush(message);
-                TimeUnit.SECONDS.sleep(60L);
-            }
+            //for (int i = 1; i <= 10; i++) {
+            //    System.out.println("客户端第" + i + "次发送消息");
+            //    JSONObject jsonObject = new JSONObject();
+            //    jsonObject.put("musicId", 2448L);
+            //    jsonObject.put("reqTimeStamp", 15553225632L);
+            //    jsonObject.put("playTime", 15553225632L);
+            //    jsonObject.put("messageType", -1);
+            //    jsonObject.put("pianoId", 7L);
+            //
+            //    Message message = Message.buildMessage(1, (byte) 1, (byte) 1, JSONUtil.toJsonStr(jsonObject).getBytes(CharsetUtil.UTF_8));
+            //    future.channel().writeAndFlush(message);
+            //    TimeUnit.SECONDS.sleep(60L);
+            //}
             future.channel().closeFuture().sync();
         } finally {
             group.shutdownGracefully();

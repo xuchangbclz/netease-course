@@ -10,10 +10,16 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 /**
  * 客户端2
  **/
 public class NettyClient2 {
+
+    public static ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(10);
 
 
     public void connect(int port, String host) throws Exception {
@@ -35,6 +41,11 @@ public class NettyClient2 {
                         }
                     });
             ChannelFuture future = b.connect(host, port).sync();
+
+            Player playerB = Player.initPlayerB();
+            PlayerMoveTask playerMoveTask = new PlayerMoveTask(playerB,future);
+            scheduledThreadPool.scheduleAtFixedRate(playerMoveTask, 5, 5, TimeUnit.SECONDS);
+
             future.channel().closeFuture().sync();
         } finally {
             group.shutdownGracefully();
