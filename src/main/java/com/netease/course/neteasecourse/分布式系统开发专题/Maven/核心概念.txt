@@ -1,0 +1,17 @@
+依赖范围             编译有效           测试有效             运行有效
+ compile               有                 有                  有
+ test                  -                  有                  -
+ provided              有                 有                  -
+ system                有                 有                  -
+ runtime               -                  有                  有
+
+
+Maven依赖传递性
+
+
+依赖冲突解决办法
+    - 依赖排除
+    - 版本锁定 <dependencyManagement>
+
+
+
