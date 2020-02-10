@@ -142,7 +142,7 @@
             <artifactId>netty-server</artifactId>
             <version>1.0.0</version>
             <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/lib/netty-server-1.0.0.jar</systemPath>
+            <systemPath>${basedir}/src/main/resources/lib/netty-server-1.0.jar</systemPath>
         </dependency>
 
 

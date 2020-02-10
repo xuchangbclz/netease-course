@@ -1,5 +1,6 @@
 package com.netease.course.neteasecourse.高性能编程专题.多线程并发编程.JUC并发编程包.并发容器类;
 
+import java.util.Hashtable;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -37,6 +38,7 @@ public class ConcurrentHashMapDemo {
 
     public static void main(String[] args) {
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+        Hashtable hashtable = new Hashtable();
     }
 
 }

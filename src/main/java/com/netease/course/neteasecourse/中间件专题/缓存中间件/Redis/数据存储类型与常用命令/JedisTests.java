@@ -7,7 +7,18 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Jedis客户端测试不同redis存储数据类型：String,List,Hash,Set,Zset,Geo(地理位置坐标)，
+ * Jedis客户端测试不同redis存储数据类型：String,List,Hash,Set,Zset,Geo，BitMap,HyperLogLog(地理位置坐标)，
+ *
+ * BitMap使用场景：
+ *  就是通过一个bit位来表示某个元素对应的值或者状态,其中的key就是对应元素本身。我们知道8个bit可以组成一个Byte，所以bitmap本身会极大的节省储存空间
+ *
+ * 统计网站每个网页每天的 PV 数据
+ *  给每个网页一个独立的 Redis 计数器就可以了，这个计数器的 key 后缀加上当天的日期。这样来一个请求，incrby 一次，最终就可以统计出所有的 PV 数据
+ *
+ * 统计网站每个网页每天的 UV 数据
+ *  https://www.cnblogs.com/yourscgg/p/9463660.html
+ *
+ *
  **/
 public class JedisTests {
 
@@ -90,7 +101,7 @@ public class JedisTests {
 
 
     /**
-     * Zset存储数据类型
+     * Sorted set存储数据类型
      * 应用场景：排行榜
      */
     public static void zsetTest() {

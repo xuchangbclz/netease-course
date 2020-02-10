@@ -1,7 +1,7 @@
 package com.netease.course.neteasecourse.高性能编程专题.高并发网络编程.Netty实现消息推送.对接保朝写的Netty服务端;
 
-import com.utopa.netty.service.coder.MessageDecoder;
-import com.utopa.netty.service.coder.MessageEncoder;
+import com.utopa.netty.coder.MessageDecoder;
+import com.utopa.netty.coder.MessageEncoder;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;

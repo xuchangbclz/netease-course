@@ -5,8 +5,13 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import io.netty.handler.timeout.IdleStateHandler;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * 客户端
@@ -41,9 +46,9 @@ public class HeartBeatsClient {
                              * 客户端代码也要加入IdleStateHandler这个handler，注意的是，我们要注意的是写超时，所以要设置写超时的时间，因为服务器端是5秒检测读超时，
                              * 所以客户端必须在5秒内发送一次心跳，告之服务端，所以我们设置4秒
                              */
-                            //p.addLast("ping", new IdleStateHandler(0, 4, 0, TimeUnit.SECONDS));
-                            //p.addLast("decoder", new StringDecoder());
-                            //p.addLast("encoder", new StringEncoder());
+                            p.addLast("ping", new IdleStateHandler(0, 4, 0, TimeUnit.SECONDS));
+                            p.addLast("decoder", new StringDecoder());
+                            p.addLast("encoder", new StringEncoder());
                             p.addLast(new HeartBeatClientHandler());
                         }
                     });

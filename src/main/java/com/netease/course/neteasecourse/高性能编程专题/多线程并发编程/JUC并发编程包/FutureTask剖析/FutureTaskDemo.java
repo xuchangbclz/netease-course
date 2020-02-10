@@ -12,10 +12,10 @@ import java.util.concurrent.locks.LockSupport;
  *
  **/
 public class FutureTaskDemo<T> implements Runnable {
-    //public static void main(String[] args) {
-    //    ExecutorService executorService = Executors.newSingleThreadExecutor();
-    //    Future future = executorService.submit(() -> {});
-    //}
+    public static void main(String[] args) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future future = executorService.submit(() -> {});
+    }
 
     Callable<T> callable; //  业务逻辑在callable里面
     T result = null;
